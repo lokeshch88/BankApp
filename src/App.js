@@ -7,7 +7,9 @@ import Signup from './Components/Signup';
 import Login from './Components/Login';
 import Navbar from './Components/Navbar';
 import Welcome from './Components/Welcome';
-
+import ForgotPassword from './Components/ForgotPassword';
+import AdminPage from './Components/AdminPage';
+import UsersData from './Components/UsersData'
 function App() {
   return (
     <div >
@@ -18,6 +20,9 @@ function App() {
         <Route path="/login" element={<Login/>}/>
         <Route path="/signup" element={<Signup/>}/>
         <Route path="/welcome" element={<Welcome/>}/>
+        <Route path="/forgotpasword" element={<ForgotPassword/>}/>
+        <Route path="admin" element={<AdminPage/>}/>
+        <Route path="/usersdata" element={<UsersData/>}/>
 
        </Routes>
       </Router>

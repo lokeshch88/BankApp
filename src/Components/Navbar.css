@@ -92,12 +92,12 @@ body {
     transition: opacity 0.3s ease-in-out;
   }
   
-  /* Hide the top navbar on scroll */
+
   body.scrolled .navbar-top {
-    transform: translateY(-100%); /* Moves the top navbar out of view */
+    transform: translateY(-100%); 
   }
   
-  /* Show the bottom navbar with opacity transition */
+  
   body.scrolled .navbar-bottom {
     opacity: 1;
   }
@@ -116,6 +116,7 @@ body {
   
   .navbar-links a:hover {
     background-color: #8ab5ee;
+    
   }
   
  

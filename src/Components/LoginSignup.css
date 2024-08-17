@@ -6,7 +6,7 @@
     display: flex;
     position: fixed;
     flex-direction: column;
-    background: url("/home/credentek/bank/src/Components/vecteezy_fingerprint-identity-sensor-data-protection-system-podium_7164537.jpg");
+    background: url("/home/credentek/Lokesh/bank/src/Components/vecteezy_fingerprint-identity-sensor-data-protection-system-podium_7164537.jpg");
     margin-top: 80px;
     
     padding-bottom: 30px;
@@ -16,6 +16,7 @@
   
    
 }
+
 .header{
     display: flex;
     flex-direction: column;
@@ -35,6 +36,7 @@ a{
     color: white;
 }
 .inputs{
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -47,7 +49,7 @@ a{
     margin:auto;
     width: 250px;
     height:40px;
-    border: 2px solid white;
+    border: 1px solid white;
     border-radius: 6px;
 
   

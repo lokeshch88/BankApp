@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './LoginSignup.css'
 import Login from './Login'
 import Navbar from './Navbar'
+import axios from 'axios'
 
 
 const Signup = () => {
@@ -25,21 +26,26 @@ const Signup = () => {
       return false;
       
     }
-    localStorage.setItem('name', name)
-    localStorage.setItem('email', email)
-    localStorage.setItem('password', password)
-    return true;
-    // alert("Sign up successfully")
-  }
-
-  const handleSignup=(e)=>{
-    // e.preventDefault();
-    if(validate()){
-      alert("signup successfully")
-    }
-   
     
   }
+
+  const handleSignup = async (e) => {
+    e.preventDefault();
+    if (validate()) {
+      try {
+        const response = await axios.post('http://localhost:8080/users/register', {
+          name: name,
+          email: email,
+          password: password
+        });
+        alert("Signup successfully");
+        console.log(response.data);
+      } catch (error) {
+        console.error('Error signing up', error);
+        alert("Error signing up");
+      }
+    }
+  };
   return (
     <div>
       <Navbar/>

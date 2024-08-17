@@ -2,37 +2,34 @@ import React, { useEffect, useState } from 'react'
 import './LoginSignup.css'
 import Navbar from './Navbar'
 import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
+
 const Login = () => {
-  const [storedEmail, setStoredEmail]=useState('')
-  const [storedPassword, setStoredPassword]=useState('')
+ 
   const [email,setEmail]=useState('');
   const [password,setPassword]=useState('');
+  const [username,setUsername]=useState('');
 
   const navigate=useNavigate();
 
-  const handleLogin=()=>{
-    // if(!email || !password){
-    //   alert("email or password cannot be blank")
-    // }
-    if(!email===storedEmail && !password===storedPassword){
-     
-      alert("wrong credentials entered")
-    }
-    else{
-    navigate('/welcome')
+  const handleLogin= async (e)=>{
+    e.preventDefault();
+    try {
+      const response = await axios.post('http://192.168.0.78:8080/users/login', {
+        email: email,
+        password: password
+      });
+     localStorage.setItem(username, response.data.name)
+      navigate("/welcome")
+  }
+  catch{
+    alert("wrong login credentials")
+
   }
     
-
   }
-  useEffect(()=>{
-    const email=localStorage.getItem('email')
-    const password=localStorage.getItem('password')
-    setStoredEmail(email ||'')
-    setStoredPassword(password||'')
-  }
-
-
-  )
+ 
+  
   return (
     
     <div>
@@ -58,15 +55,18 @@ const Login = () => {
         
             </div>
             <div className='text2'>
-             Don't have an account <a href='/signup'>signup</a>
+             Don't have an account <a href='/signup'>Signup</a>
             </div>
             <div className='text2'>
-              <a href='/signup'>Forgot password?</a>
+              <a href='/forgotpasword' >Forgot password?</a>
             </div>
             <div className='submit'>
             <div> <button type='submit'>Log in</button></div>
 
         </div>
+
+
+        
           </form>
             
         </div>
